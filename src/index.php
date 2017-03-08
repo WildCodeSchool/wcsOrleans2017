@@ -2,7 +2,10 @@
     include 'header.php';
     include 'connect.php';
     $bdd = mysqli_connect(SERVER, USER, PASS, DB);
-    echo '<h2>Trombinoscope</h2>';
+ // Change character set to utf8
+    mysqli_set_charset($bdd,"utf8");
+
+echo '<h2>Trombinoscope</h2>';
 
     $req = "SELECT id, civilite, prenom, nom, description, date_naissance, type 
             FROM eleve";

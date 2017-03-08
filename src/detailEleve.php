@@ -2,6 +2,8 @@
     include 'header.php';
     include 'connect.php';
     $bdd = mysqli_connect(SERVER, USER, PASS, DB);
+ // Change character set to utf8
+    mysqli_set_charset($bdd,"utf8");
 
     $id=mysqli_real_escape_string($bdd, trim($_GET['id']));
     $req = "SELECT * FROM eleve WHERE id=$id";
