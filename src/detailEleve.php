@@ -1,24 +1,30 @@
 <?php
     include 'header.php';
     include 'connect.php';
-    $bdd = mysqli_connect(SERVER, USER, PASS, DB);
- // Change character set to utf8
-    mysqli_set_charset($bdd,"utf8");
+    include 'Eleve.php';
 
-    $id=mysqli_real_escape_string($bdd, trim($_GET['id']));
-    $req = "SELECT * FROM eleve WHERE id=$id";
-    $res = mysqli_query($bdd, $req);
+    use wcs\Eleve;
+    $pdo = new PDO(DSN, USER, PASS);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $req = "SELECT * FROM eleve WHERE id=:id";
+    $prep = $pdo->prepare($req);
+    $prep->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
 
+    $prep->execute();
 
-    echo '<div class="row">';
-    while($data = mysqli_fetch_assoc($res)) {
-        echo '<h2>'.$data['civilite'].' '.$data['prenom'].' '.$data['nom'].'</h2>
-                <p>'.$data['description'].'</p>
-                <p>'.$data['date_naissance'].'</p>
-                <p>'.$data['type'].'</p>';
+    $res = $prep->fetchAll(PDO::FETCH_CLASS, 'wcs\Eleve');
 
-        echo '<a href="ficheEleve.php?id='.$data['id'].'" class="btn btn-primary">Modifier '.$data['type'].'</a>';
+    if ($res) :
+     $eleve = $res[0]; ?>
 
-    }
+    <div class="row">
 
+        <h2><?= $eleve->getCivilite().' '.$eleve->getPrenom().' '.$eleve->getNom()?> </h2>
+                <p><?= $eleve->getDescription() ?></p>
+                <p><?= $eleve->getDateNaissance() ?></p>
+                <p><?= $eleve->getType() ?></p>
+
+        <a href="ficheEleve.php?id=<?= $eleve->getId() ?>" class="btn btn-primary">Modifier <?= $eleve->getType() ?></a>
+
+    <?php endif;
     include 'footer.php';
