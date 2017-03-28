@@ -7,7 +7,7 @@
     <title>Trombinoscope WCS</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
 
 </head>
 <body>
@@ -32,9 +32,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-                <li><a href="accueil.php">Accueil</a></li>
-                <li><a href="ecole.php">L'école</a></li>
-                <li><a href="ficheEleve.php">Fiche élève</a></li>
+                <li><a href="../../accueil.php">Accueil</a></li>
+                <li><a href="../../ecole.php">L'école</a></li>
+                <li><a href="../../ficheEleve.php">Fiche élève</a></li>
 
             </ul>
         </div><!-- /.navbar-collapse -->

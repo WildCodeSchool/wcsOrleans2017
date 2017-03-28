@@ -129,5 +129,5 @@ echo '    <form method="POST" action="ficheEleve.php">
         <a href="index.php" class="btn btn-primary">Retour à l\'accueil</a>
     </div>';
 
-    include  'footer.php';
+    include 'footer.php';
 ?>

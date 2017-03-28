@@ -1,0 +1,14 @@
+{
+    "name": "sylvain/wcs-orleans2017",
+    "description": "livecoding wcs 2017",
+    "authors": [
+        {
+            "name": "Sylvain Blondeau",
+            "email": "sylvain@wildcodeschool.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"wcs\\": "src/"}
+    },
+    "require": {}
+}
