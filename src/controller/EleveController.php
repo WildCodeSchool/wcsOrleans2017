@@ -9,6 +9,8 @@
 namespace wcs\controller;
 
 use wcs\DB;
+use wcs\Form\EleveFilter;
+use wcs\Form\EleveForm;
 
 /**
  * Class EleveController
@@ -48,7 +50,21 @@ class EleveController extends Controller
      * j'ajoute un élève
      */
     public function add() {
+        $form = new EleveForm();
 
+        if (isset($_POST['GO'])) {
+            $filter = new EleveFilter();
+            $form->setInputFilter($filter);
+            $form->setData($_POST);
+
+            if ($form->isValid()) {
+                echo 'Le form est valide';
+            } else {
+                var_dump($form->getMessages());
+            }
+        }
+
+        return $this->render('eleve/addEleve.php', ['form'=>$form]);
     }
 
     /**
