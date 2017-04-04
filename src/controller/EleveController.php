@@ -59,8 +59,7 @@ class EleveController extends Controller
 
             if ($form->isValid()) {
                 echo 'Le form est valide';
-            } else {
-                var_dump($form->getMessages());
+                echo 'insertion des données en base.';
             }
         }
 

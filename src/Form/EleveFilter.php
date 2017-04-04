@@ -9,21 +9,42 @@
 namespace wcs\Form;
 
 
+use Zend\Filter\StringToUpper;
 use Zend\InputFilter\InputFilter;
+use Zend\Validator\EmailAddress;
 use Zend\Validator\NotEmpty;
+use Zend\Validator\StringLength;
 
 class EleveFilter extends InputFilter
 {
     public function __construct()
     {
-        $this->add(
+        $this->add([
+            'name' => 'nom',
+            'allow_empty' => false,
+            'required' => true,
+            'validators' => [[
+                'name' => NotEmpty::class
+            ],
             [
-                'name' => 'nom',
-                'required' => true,
-                'validators' => [
-                    ['NotEmpty' => NotEmpty::class]
+                'name' => StringLength::class,
+                'options' =>
+                [
+                    'min' => 5,
                 ]
-            ]
-        );
+            ]],
+        ]);
+
+        $this->add([
+            'name' => 'email',
+            'allow_empty' => false,
+            'required' => true,
+            'validators' => [[
+                'name' => NotEmpty::class
+            ],
+            [
+                'name' => EmailAddress::class
+            ]]
+        ]);
     }
 }

@@ -8,6 +8,8 @@
 
 namespace wcs\Form;
 
+use Zend\Form\Element\Csrf;
+use Zend\Form\Element\Email;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
 
@@ -23,6 +25,19 @@ class EleveForm extends Form
             'options' => [
                 'label' => 'Votre nom',
             ],
+        ]);
+
+        $this->add([
+            'type'  => Email::class,
+            'name' => 'email',
+            'options' => [
+                'label' => 'Votre email',
+            ],
+        ]);
+
+        $this->add([
+            'type'  => Csrf::class,
+            'name' => 'csrf',
         ]);
     }
 }
