@@ -25,14 +25,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Trombinoscope</a>
+            <a class="navbar-brand" href="index.php">Trombinoscope</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
-                <li><a href="../../accueil.php">Accueil</a></li>
+                <li><a href="index.php">Accueil</a></li>
                 <li><a href="../../ecole.php">L'école</a></li>
                 <li><a href="../../ficheEleve.php">Fiche élève</a></li>
 
@@ -41,5 +41,5 @@
     </div>
 </nav>
 
-<div class="container-fluid"
+<div class="container-fluid">
 <h1>Hello, world!</h1>
