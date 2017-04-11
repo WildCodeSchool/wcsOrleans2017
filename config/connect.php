@@ -2,4 +2,4 @@
 
 define("DSN", "mysql:host=localhost;dbname=trombinoscope");
 define("USER", "root");
-define("PASS", "wcs");
+define("PASS", '$ubW1lder');
